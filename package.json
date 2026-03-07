@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
+    "@dnd-kit/helpers": "^0.3.2",
+    "@dnd-kit/react": "^0.3.2",
     "@fontsource-variable/inter": "^5.2.8",
     "@tailwindcss/vite": "^4.1.17",
+    "@types/chrome": "^0.1.37",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.577.0",

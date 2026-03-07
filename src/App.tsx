@@ -1,9 +1,12 @@
 import { ThemeProvider } from '@/shared/Theme/ThemeProvider'
+import AppShortcuts from '@/components/shortcuts/AppShortcuts'
 
 export function App() {
   return (
     <>
-      <ThemeProvider></ThemeProvider>
+      <ThemeProvider>
+        <AppShortcuts />
+      </ThemeProvider>
     </>
   )
 }
