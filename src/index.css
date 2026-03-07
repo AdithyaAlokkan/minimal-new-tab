@@ -121,7 +121,7 @@
   @keyframes slide-up {
     from {
       opacity: 0;
-      transform: translateY(200%);
+      transform: translateY(100px);
     }
     to {
       opacity: 1;
@@ -139,5 +139,11 @@
   }
   html {
     @apply font-sans;
+  }
+
+  /* Overrides */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }

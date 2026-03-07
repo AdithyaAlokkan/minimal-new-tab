@@ -47,7 +47,7 @@ const AppShortcuts = () => {
         }}
       >
         <div className='mx-auto grid min-w-md grid-cols-[repeat(auto-fit,calc(var(--spacing)*18))] grid-rows-[calc(var(--spacing)*1)_auto] justify-center gap-x-5 gap-y-10 px-[100px] pt-[100px] md:px-[150px] lg:px-[250px] xl:px-[350px]'>
-          <div className='col-span-full text-2xl'>Apps</div>
+          <div className='col-span-full text-lg'>Apps</div>
           {shortcuts &&
             shortcuts.length > 0 &&
             shortcuts.map((shortcut: ShortcutType, index: number) => (

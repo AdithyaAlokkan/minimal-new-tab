@@ -1,56 +1,40 @@
-import clsx from 'clsx'
+// import clsx from 'clsx'
 
 import { useSortable } from '@dnd-kit/react/sortable'
 
 import type { ShortcutType } from '@/types/ShortcutType'
-import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 
 type ShortcutProps = ShortcutType & {
   index: number
 }
 
 const Shortcut = ({ id, name, url, icon, index }: ShortcutProps) => {
-  const [isMouseOver, setIsMouseOver] = useState(false)
-
   const { ref, isDragging } = useSortable({ id: id, index: index })
 
   return (
-    <a
+    <Button
+      onClick={() => (window.location.href = url)}
+      variant={'outline'}
+      size={'icon'}
+      className={
+        'bg-background/30 relative size-18 rounded-3xl backdrop-blur-sm'
+      }
       id={id}
-      href={url}
       data-name={name}
       ref={ref}
-      onMouseEnter={() => setIsMouseOver(true)}
-      onMouseLeave={() => setIsMouseOver(false)}
-      className={clsx(
-        'bg-foreground/5! focus:bg-foreground/10! inset-shadow-border relative inline-flex size-18 items-center justify-center rounded-3xl backdrop-blur-sm transition duration-150 ease-in-out focus:inset-shadow-xs focus:outline-none',
-        {
-          'bg-foreground/10! inset-shadow-xs': isMouseOver || isDragging,
-          'scale-105 shadow-lg': isDragging,
-        },
-      )}
     >
-      {isDragging ? (
-        <>
-          <img
-            src={icon}
-            alt={`${name} icon`}
-            className='pointer-events-none size-10 object-contain'
-          />
-        </>
-      ) : (
-        <>
-          <img
-            src={icon}
-            alt={`${name} icon`}
-            className='pointer-events-none size-10 object-contain'
-          />
-          <div className='label absolute -bottom-7 w-20 overflow-hidden text-center text-sm text-ellipsis whitespace-nowrap'>
-            {name}
-          </div>
-        </>
+      <img
+        src={icon}
+        alt={`${name} icon`}
+        className='pointer-events-none size-10 object-contain'
+      />
+      {!isDragging && (
+        <span className='pointer-events-none absolute top-full left-1/2 mt-1 w-20 -translate-x-1/2 overflow-hidden text-center text-sm text-ellipsis whitespace-nowrap'>
+          {name}
+        </span>
       )}
-    </a>
+    </Button>
   )
 }
 
