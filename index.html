@@ -19,22 +19,7 @@
     <link rel="manifest" href="/icons/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Tab</title>
-    <script>
-      ;(function () {
-        const themeMode = localStorage.getItem('settingThemeMode') || 'system'
-        const root = document.documentElement
-        root.classList.remove('light', 'dark')
-        if (themeMode === 'system') {
-          const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
-            .matches
-            ? 'dark'
-            : 'light'
-          root.classList.add(systemTheme)
-        } else {
-          root.classList.add(themeMode)
-        }
-      })()
-    </script>
+    <script src="./theme-init.js"></script>
   </head>
   <body>
     <div id="root"></div>
