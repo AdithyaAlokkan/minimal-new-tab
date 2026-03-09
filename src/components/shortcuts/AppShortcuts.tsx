@@ -3,11 +3,12 @@ import ShortcutTrash from '@/components/shortcuts/ShortcutTrash'
 
 import { useState } from 'react'
 import useStorage from '@/hooks/useStorage'
-import type { ShortcutType } from '@/types/ShortcutType'
+import type { ShortcutType } from '@/components/shortcuts/ShortcutType'
 
 import { DragDropProvider } from '@dnd-kit/react'
 import { PointerSensor, PointerActivationConstraints } from '@dnd-kit/dom'
 import { move } from '@dnd-kit/helpers'
+import NewAppShortcutDialogue from './NewAppShortcutDialog'
 
 const AppShortcuts = () => {
   const [shortcuts, setShortcuts] = useStorage('shortcuts')
@@ -60,6 +61,12 @@ const AppShortcuts = () => {
                 index={index}
               />
             ))}
+          <NewAppShortcutDialogue
+            shortcuts={shortcuts}
+            onAddShortcut={(newShortcut: ShortcutType) => {
+              setShortcuts([...shortcuts, newShortcut])
+            }}
+          />
         </div>
 
         {isDraggingActive ? <ShortcutTrash /> : null}

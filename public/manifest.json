@@ -1,10 +1,15 @@
 {
-  "name": "SuperTab",
+  "name": "Minimal New Tab",
   "version": "0",
   "description": "A Minimal and Customisable New Tab Page",
   "manifest_version": 3,
-  "permissions": ["activeTab"],
   "chrome_url_overrides": {
     "newtab": "./index.html"
+  },
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
   }
 }
