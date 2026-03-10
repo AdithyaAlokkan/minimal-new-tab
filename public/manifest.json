@@ -1,6 +1,6 @@
 {
   "name": "Minimal New Tab",
-  "version": "0",
+  "version": "3.0.0",
   "description": "A Minimal and Customisable New Tab Page",
   "manifest_version": 3,
   "chrome_url_overrides": {
