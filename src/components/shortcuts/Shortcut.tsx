@@ -30,7 +30,7 @@ const Shortcut = ({ id, name, url, icon, index }: ShortcutProps) => {
         className='pointer-events-none size-10 object-contain'
       />
       {!isDragging && (
-        <span className='pointer-events-none absolute top-full left-1/2 mt-1 w-20 -translate-x-1/2 overflow-hidden text-center text-sm text-ellipsis whitespace-nowrap'>
+        <span className='pointer-events-none absolute top-full left-1/2 mt-1 w-20 -translate-x-1/2 overflow-hidden text-center text-sm font-normal text-ellipsis whitespace-nowrap'>
           {name}
         </span>
       )}
