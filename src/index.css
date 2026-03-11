@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Google Sans Flex';
-  src: url('../public/fonts/google-sans-flex-variable-opsz-6-144-wght-1-1000.woff2')
+  src: url('./assets/fonts/google-sans-flex-variable-opsz-6-144-wght-1-1000.woff2')
     format('woff2');
   font-weight: 100 900;
   font-style: normal;
