@@ -9,10 +9,14 @@ import { DragDropProvider } from '@dnd-kit/react'
 import { PointerSensor, PointerActivationConstraints } from '@dnd-kit/dom'
 import { move } from '@dnd-kit/helpers'
 import NewAppShortcutDialogue from './NewAppShortcutDialog'
+import { useSettings } from '@/shared/Settings/SettingsContext'
 
 const Shortcuts = () => {
   const [shortcuts, setShortcuts] = useStorage('shortcuts')
   const [isDraggingActive, setIsDraggingActive] = useState(false)
+  const { settings } = useSettings()
+
+  if (!settings.layout.contents.shortcuts) return
 
   return (
     <>
