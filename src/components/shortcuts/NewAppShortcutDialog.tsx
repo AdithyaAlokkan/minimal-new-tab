@@ -89,7 +89,7 @@ const NewAppShortcutDialog: React.FC<NewAppShortcutDialogProps> = ({
               variant={'outline'}
               size={'icon'}
               className={
-                'bg-background/30 size-18 rounded-3xl backdrop-blur-sm transition duration-150 ease-in-out'
+                'dark:bg-background dark:hover:bg-input/20 dark:border-border relative size-18 rounded-3xl'
               }
             >
               <Plus />

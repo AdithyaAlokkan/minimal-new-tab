@@ -18,7 +18,7 @@ const Shortcut = ({ id, name, url, icon, index }: ShortcutProps) => {
       variant={'outline'}
       size={'icon'}
       className={
-        'bg-background/30 relative size-18 rounded-3xl backdrop-blur-sm'
+        'dark:bg-background dark:hover:bg-input/20 dark:border-border relative size-18 rounded-3xl'
       }
       id={id}
       data-name={name}
