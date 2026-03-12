@@ -50,28 +50,27 @@ const SettingsDialog = () => {
             variant={'outline'}
             size='icon'
             className={
-              'bg-background/30 text-muted-foreground fixed right-0 bottom-0 m-5 rounded-full backdrop-blur-sm'
+              'bg-background/50 text-muted-foreground fixed right-0 bottom-0 m-5 rounded-full backdrop-blur-sm'
             }
           >
             <Settings />
           </Button>
         }
       />
-      <DialogContent className='max-h-[500px] min-w-100 overflow-hidden p-0 md:max-w-[700px] lg:max-w-[800px]'>
+      <DialogContent className='max-h-[500px] min-w-120 overflow-hidden p-0 sm:max-w-[600px] lg:max-w-[800px]'>
         <DialogTitle className='sr-only'>Settings</DialogTitle>
         <DialogDescription className='sr-only'>
           Customize your settings here.
         </DialogDescription>
         <SidebarProvider
-          className='items-start'
           style={
             {
-              '--sidebar-width': '12rem',
-              '--sidebar-width-mobile': '16rem',
+              '--sidebar-width': '14rem',
+              '--sidebar-width-mobile': '18rem',
             } as React.CSSProperties
           }
         >
-          <Sidebar collapsible='none' className='hidden md:flex'>
+          <Sidebar collapsible='none'>
             <SidebarContent>
               <SidebarGroup>
                 <SidebarGroupContent>
@@ -92,9 +91,7 @@ const SettingsDialog = () => {
               </SidebarGroup>
             </SidebarContent>
           </Sidebar>
-          <ScrollArea className='flex h-[500px] flex-1 flex-col overflow-hidden'>
-            {activePage}
-          </ScrollArea>
+          <ScrollArea className='h-[500px] w-full'>{activePage}</ScrollArea>
         </SidebarProvider>
       </DialogContent>
     </Dialog>
