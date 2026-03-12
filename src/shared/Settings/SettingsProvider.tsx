@@ -21,7 +21,6 @@ export function SettingsProvider({
   })
 
   useEffect(() => {
-    console.log('Settings Effect Run')
     const root = window.document.documentElement
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     const updateTheme = () => {

@@ -4,6 +4,7 @@ export type Settings = {
   }
   layout: {
     contents: {
+      clock: boolean
       shortcuts: boolean
     }
   }

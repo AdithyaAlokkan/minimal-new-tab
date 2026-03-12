@@ -6,6 +6,7 @@ export const defaultSettings: Settings = {
   },
   layout: {
     contents: {
+      clock: false,
       shortcuts: true,
     },
   },

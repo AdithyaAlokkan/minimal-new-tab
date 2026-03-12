@@ -17,6 +17,24 @@ const AppearanceSettingsPage = () => {
         <FieldLegend>Contents</FieldLegend>
         <FieldGroup>
           <Field orientation={'horizontal'}>
+            <FieldLabel>Clock</FieldLabel>
+            <Switch
+              checked={settings.layout.contents.clock}
+              onCheckedChange={(checked) => {
+                setSettings({
+                  ...settings,
+                  layout: {
+                    ...settings.layout,
+                    contents: {
+                      ...settings.layout.contents,
+                      clock: checked,
+                    },
+                  },
+                })
+              }}
+            />
+          </Field>
+          <Field orientation={'horizontal'}>
             <FieldLabel>Shortcuts</FieldLabel>
             <Switch
               checked={settings.layout.contents.shortcuts}
