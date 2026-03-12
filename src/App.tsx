@@ -1,12 +1,14 @@
-import { ThemeProvider } from '@/shared/Theme/ThemeProvider'
-import AppShortcuts from '@/components/shortcuts/AppShortcuts'
+import { SettingsProvider } from '@/shared/Settings/SettingsProvider'
+import Shortcuts from '@/components/shortcuts/Shortcuts'
+import SettingsDialog from '@/components/settings/SettingsDialog'
 
 export function App() {
   return (
     <>
-      <ThemeProvider>
-        <AppShortcuts />
-      </ThemeProvider>
+      <SettingsProvider>
+        <Shortcuts />
+        <SettingsDialog />
+      </SettingsProvider>
     </>
   )
 }

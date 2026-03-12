@@ -10,7 +10,7 @@ import { PointerSensor, PointerActivationConstraints } from '@dnd-kit/dom'
 import { move } from '@dnd-kit/helpers'
 import NewAppShortcutDialogue from './NewAppShortcutDialog'
 
-const AppShortcuts = () => {
+const Shortcuts = () => {
   const [shortcuts, setShortcuts] = useStorage('shortcuts')
   const [isDraggingActive, setIsDraggingActive] = useState(false)
 
@@ -75,4 +75,4 @@ const AppShortcuts = () => {
   )
 }
 
-export default AppShortcuts
+export default Shortcuts
