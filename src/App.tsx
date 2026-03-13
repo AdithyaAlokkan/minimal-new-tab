@@ -1,5 +1,5 @@
 import { SettingsProvider } from '@/shared/Settings/SettingsProvider'
-import Clock from '@/components/Clock'
+import Clock from '@/components/clock/Clock'
 import Shortcuts from '@/components/shortcuts/Shortcuts'
 import SettingsDialog from '@/components/settings/SettingsDialog'
 
