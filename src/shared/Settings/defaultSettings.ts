@@ -5,9 +5,10 @@ export const defaultSettings: Settings = {
     mode: 'system',
   },
   layout: {
-    contents: {
-      clock: false,
-      shortcuts: true,
+    clock: {
+      showHide: false,
+      height: 60,
     },
+    shortcuts: true,
   },
 }

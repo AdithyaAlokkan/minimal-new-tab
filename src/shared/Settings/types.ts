@@ -3,9 +3,10 @@ export type Settings = {
     mode: 'dark' | 'system' | 'light'
   }
   layout: {
-    contents: {
-      clock: boolean
-      shortcuts: boolean
+    clock: {
+      showHide: boolean
+      height: number
     }
+    shortcuts: boolean
   }
 }

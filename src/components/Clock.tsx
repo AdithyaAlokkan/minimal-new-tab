@@ -29,10 +29,16 @@ const Clock = () => {
     return () => clearInterval(interval)
   }, [])
 
-  if (!settings.layout.contents.clock) return
+  if (!settings.layout.clock) return
 
   return (
-    <div className='flex h-full w-full items-center justify-center'>
+    <div
+      className={`flex w-full items-center justify-center p-10`}
+      style={{
+        height: `${settings.layout.clock.height}%`,
+        minHeight: 'fit-content',
+      }}
+    >
       <div className='flex'>
         <div className='text-6xl'>
           <span>{hour}</span> : <span>{minute}</span>

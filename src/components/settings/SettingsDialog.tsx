@@ -26,7 +26,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 
 const nav = [
   {
-    key: 'Appearance',
+    key: 'Theme',
     icon: <Palette />,
     page: <AppearanceSettingsPage />,
   },
