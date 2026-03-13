@@ -29,7 +29,7 @@ const Clock = () => {
     return () => clearInterval(interval)
   }, [])
 
-  if (!settings.layout.clock) return
+  if (!settings.layout.clock.showHide) return
 
   return (
     <div
@@ -41,7 +41,9 @@ const Clock = () => {
     >
       <div className='m-10 flex'>
         <div className='text-6xl'>
-          <span>{hour}</span> : <span>{minute}</span>
+          <span>
+            {hour}:{minute}
+          </span>
         </div>
         <div className='ml-3 self-end text-lg'>
           <span>{amPm}</span>
