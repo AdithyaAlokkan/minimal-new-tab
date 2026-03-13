@@ -15,6 +15,7 @@ const Shortcut = ({ id, name, url, icon, index }: ShortcutProps) => {
       onClick={() => (window.location.href = url)}
       variant={'shortcut'}
       size={'shortcut'}
+      className={isDragging ? 'shadow-2xl' : ''}
       id={id}
       data-name={name}
       ref={ref}

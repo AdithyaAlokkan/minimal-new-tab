@@ -19,7 +19,7 @@ const buttonVariants = cva(
           'bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40',
         link: 'text-primary underline-offset-4 hover:underline',
         shortcut:
-          'border-border bg-background shadow-xs hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-background dark:hover:bg-input/20 dark:border-border relative',
+          'backdrop-blur-sm border-border bg-background/20 hover:bg-input/20 hover:text-foreground aria-expanded:bg-input/20 aria-expanded:text-foreground relative',
       },
       size: {
         default:
