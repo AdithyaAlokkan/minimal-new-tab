@@ -24,12 +24,12 @@ import normalizeUrl from '@/lib/normalizeUrl'
 import { Plus } from 'lucide-react'
 import { LoaderCircle } from 'lucide-react'
 
-interface NewAppShortcutDialogProps {
+interface NewShortcutDialogProps {
   shortcuts: ShortcutType[]
   onAddShortcut: (shortcut: ShortcutType) => void
 }
 
-const NewAppShortcutDialog: React.FC<NewAppShortcutDialogProps> = ({
+const NewShortcutDialog: React.FC<NewShortcutDialogProps> = ({
   shortcuts,
   onAddShortcut,
 }) => {
@@ -166,4 +166,4 @@ const NewAppShortcutDialog: React.FC<NewAppShortcutDialogProps> = ({
   )
 }
 
-export default NewAppShortcutDialog
+export default NewShortcutDialog

@@ -8,7 +8,7 @@ import type { ShortcutType } from '@/components/shortcuts/ShortcutType'
 import { DragDropProvider } from '@dnd-kit/react'
 import { PointerSensor, PointerActivationConstraints } from '@dnd-kit/dom'
 import { move } from '@dnd-kit/helpers'
-import NewAppShortcutDialogue from './NewAppShortcutDialog'
+import NewShortcutDialogue from './NewShortcutDialog'
 import { useSettings } from '@/shared/Settings/SettingsContext'
 
 const Shortcuts = () => {
@@ -52,7 +52,11 @@ const Shortcuts = () => {
         }}
       >
         <div className='mx-auto my-10 grid min-w-md grid-cols-[repeat(auto-fit,calc(var(--spacing)*18))] grid-rows-[calc(var(--spacing)*1)_auto] justify-center gap-x-5 gap-y-10 px-[100px] pb-10 md:px-[150px] lg:px-[250px] xl:px-[350px]'>
-          <div className='col-span-full text-xl'>Apps</div>
+          <div className='col-span-full text-lg'>
+            <div className='flex items-center gap-2'>
+              <span>Shortcuts</span>
+            </div>
+          </div>
           {shortcuts &&
             shortcuts.length > 0 &&
             shortcuts.map((shortcut: ShortcutType, index: number) => (
@@ -65,7 +69,7 @@ const Shortcuts = () => {
                 index={index}
               />
             ))}
-          <NewAppShortcutDialogue
+          <NewShortcutDialogue
             shortcuts={shortcuts}
             onAddShortcut={(newShortcut: ShortcutType) => {
               setShortcuts([...shortcuts, newShortcut])
