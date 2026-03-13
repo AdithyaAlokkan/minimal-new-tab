@@ -39,7 +39,7 @@ const Clock = () => {
         minHeight: 'fit-content',
       }}
     >
-      <div className='m-10 flex'>
+      <div className='font-number m-10 flex'>
         <div className='text-6xl'>
           <span>
             {hour}:{minute}
