@@ -32,7 +32,7 @@ const Clock = () => {
   if (!settings.layout.contents.clock) return
 
   return (
-    <div className='flex h-screen w-full items-center justify-center'>
+    <div className='flex h-full w-full items-center justify-center'>
       <div className='flex'>
         <div className='text-6xl'>
           <span>{hour}</span> : <span>{minute}</span>

@@ -154,6 +154,7 @@
     font-family: var(--font-sans) !important;
     font-weight: var(--font-weight-normal) !important;
     font-size: var(--text-base);
+    height: 100vh;
   }
 
   /* Overrides */
