@@ -33,13 +33,13 @@ const Clock = () => {
 
   return (
     <div
-      className={`flex w-full items-center justify-center p-10`}
+      className={'flex w-full items-center justify-center'}
       style={{
         height: `${settings.layout.clock.height}%`,
         minHeight: 'fit-content',
       }}
     >
-      <div className='flex'>
+      <div className='m-10 flex'>
         <div className='text-6xl'>
           <span>{hour}</span> : <span>{minute}</span>
         </div>
