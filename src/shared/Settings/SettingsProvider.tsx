@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { SettingsContext } from './SettingsContext'
-import type { Settings } from './types'
-import { defaultSettings } from './defaultSettings'
+import type { Settings } from './SettingsType'
+import { SettingsDefaults } from './SettingsDefaults'
 
 interface SettingsProviderProps {
   children?: React.ReactNode
@@ -11,7 +11,7 @@ interface SettingsProviderProps {
 
 export function SettingsProvider({
   children,
-  initialSettings = defaultSettings,
+  initialSettings = SettingsDefaults,
   settingsStorageKey = 'settings',
   ...props
 }: SettingsProviderProps) {

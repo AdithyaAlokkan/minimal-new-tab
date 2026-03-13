@@ -1,4 +1,5 @@
-export type Settings = {
+interface SettingsV1 {
+  version: 1
   theme: {
     mode: 'dark' | 'system' | 'light'
   }
@@ -10,3 +11,5 @@ export type Settings = {
     shortcuts: boolean
   }
 }
+
+export type { SettingsV1 as Settings }
