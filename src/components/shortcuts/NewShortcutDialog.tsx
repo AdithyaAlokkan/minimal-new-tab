@@ -86,11 +86,8 @@ const NewShortcutDialog: React.FC<NewShortcutDialogProps> = ({
           render={
             <Button
               onClick={() => setIsOpen(true)}
-              variant={'outline'}
-              size={'icon'}
-              className={
-                'dark:bg-background dark:hover:bg-input/20 dark:border-border relative size-18 rounded-3xl'
-              }
+              variant={'shortcut'}
+              size={'shortcut'}
             >
               <Plus />
             </Button>

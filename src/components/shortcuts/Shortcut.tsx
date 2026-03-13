@@ -1,5 +1,3 @@
-// import clsx from 'clsx'
-
 import { useSortable } from '@dnd-kit/react/sortable'
 
 import type { ShortcutType } from '@/components/shortcuts/ShortcutType'
@@ -15,11 +13,8 @@ const Shortcut = ({ id, name, url, icon, index }: ShortcutProps) => {
   return (
     <Button
       onClick={() => (window.location.href = url)}
-      variant={'outline'}
-      size={'icon'}
-      className={
-        'dark:bg-background dark:hover:bg-input/20 dark:border-border relative size-18 rounded-3xl'
-      }
+      variant={'shortcut'}
+      size={'shortcut'}
       id={id}
       data-name={name}
       ref={ref}
