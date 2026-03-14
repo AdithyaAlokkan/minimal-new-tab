@@ -3,6 +3,7 @@ import { SettingsContext } from './SettingsContext'
 import type { Settings } from './settings.types'
 import { SettingsDefaults } from './settings.default'
 import { migrateSettings } from './settings.migrations'
+import { isSettings } from './settings.guards'
 
 interface SettingsProviderProps {
   children?: React.ReactNode
@@ -17,14 +18,13 @@ export function SettingsProvider({
   ...props
 }: SettingsProviderProps) {
   const [settings, setSettings] = useState<Settings>(() => {
-    const stored = localStorage.getItem(settingsStorageKey)
-    if (stored) {
-      const currentSettings = JSON.parse(stored)
-      const latestSettings = migrateSettings(currentSettings)
-      localStorage.setItem(settingsStorageKey, JSON.stringify(latestSettings))
-      return latestSettings
+    try {
+      const stored = JSON.parse(localStorage.getItem('settings') ?? 'null')
+      const migrated = migrateSettings(stored)
+      return isSettings(migrated) ? migrated : initialSettings
+    } catch {
+      return initialSettings
     }
-    return initialSettings
   })
 
   useEffect(() => {

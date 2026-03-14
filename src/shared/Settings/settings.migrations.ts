@@ -36,14 +36,12 @@ const migrations: {
  * Orchestrator: migrate any old settings to the latest version
  */
 export function migrateSettings(settings: SettingsLegacy): Settings {
-  console.log('Checking for migration....')
   let current = settings
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   type MigrationInput = any
 
   // Loop until the current version has no migration (i.e., it's the latest)
   while (current.version in migrations) {
-    console.log('Running migration....')
     current = migrations[current.version as keyof typeof migrations](
       current as MigrationInput,
     )
