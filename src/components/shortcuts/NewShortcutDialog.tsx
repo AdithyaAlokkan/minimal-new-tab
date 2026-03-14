@@ -22,7 +22,6 @@ import type { ShortcutType } from '@/components/shortcuts/ShortcutType'
 import getIcon from '@/lib/getIcon'
 import normalizeUrl from '@/lib/normalizeUrl'
 import { Plus } from 'lucide-react'
-import { LoaderCircle } from 'lucide-react'
 import { Spinner } from '@/components/ui/spinner'
 
 interface NewShortcutDialogProps {
