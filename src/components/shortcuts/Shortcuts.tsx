@@ -16,7 +16,7 @@ const Shortcuts = () => {
   const [isDraggingActive, setIsDraggingActive] = useState(false)
   const { settings } = useSettings()
 
-  if (!settings.layout.shortcuts) return
+  if (!settings.layout.shortcuts.show) return
 
   return (
     <>
