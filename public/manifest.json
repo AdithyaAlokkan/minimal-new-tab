@@ -1,6 +1,6 @@
 {
   "name": "PlusTab - Minimal New Tab",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "A Minimal and Customisable New Tab Page",
   "manifest_version": 3,
   "chrome_url_overrides": {
