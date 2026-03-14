@@ -1,4 +1,4 @@
-import type { Settings } from './SettingsType'
+import type { Settings } from './settings.types'
 import { createContext, useContext } from 'react'
 
 type Context = {

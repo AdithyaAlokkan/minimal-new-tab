@@ -20,13 +20,13 @@ const AppearanceSettingsPage = () => {
         <Field orientation={'horizontal'}>
           <FieldLabel>Show / Hide</FieldLabel>
           <Switch
-            checked={settings.layout.clock.showHide}
+            checked={settings.layout.clock.show}
             onCheckedChange={(checked) => {
               setSettings({
                 ...settings,
                 layout: {
                   ...settings.layout,
-                  clock: { ...settings.layout.clock, showHide: checked },
+                  clock: { ...settings.layout.clock, show: checked },
                 },
               })
             }}
@@ -65,13 +65,13 @@ const AppearanceSettingsPage = () => {
         <Field orientation={'horizontal'}>
           <FieldLabel>Show / Hide</FieldLabel>
           <Switch
-            checked={settings.layout.shortcuts}
+            checked={settings.layout.shortcuts.show}
             onCheckedChange={(checked) => {
               setSettings({
                 ...settings,
                 layout: {
                   ...settings.layout,
-                  shortcuts: checked,
+                  shortcuts: { ...settings.layout.shortcuts, show: checked },
                 },
               })
             }}

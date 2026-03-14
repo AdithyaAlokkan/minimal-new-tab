@@ -1,15 +1,17 @@
-import type { Settings } from './SettingsType'
+import type { Settings } from './settings.types'
 
 export const SettingsDefaults: Settings = {
-  version: 1,
+  version: 2,
   theme: {
     mode: 'system',
   },
   layout: {
     clock: {
-      showHide: false,
+      show: false,
       height: 100,
     },
-    shortcuts: true,
+    shortcuts: {
+      show: true,
+    },
   },
 }

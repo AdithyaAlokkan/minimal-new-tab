@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { SettingsContext } from './SettingsContext'
-import type { Settings } from './SettingsType'
-import { SettingsDefaults } from './SettingsDefaults'
+import type { Settings } from './settings.types'
+import { SettingsDefaults } from './settings.default'
+import { migrateSettings } from './settings.migrations'
 
 interface SettingsProviderProps {
   children?: React.ReactNode
@@ -17,7 +18,13 @@ export function SettingsProvider({
 }: SettingsProviderProps) {
   const [settings, setSettings] = useState<Settings>(() => {
     const stored = localStorage.getItem(settingsStorageKey)
-    return stored ? JSON.parse(stored) : initialSettings
+    if (stored) {
+      const currentSettings = JSON.parse(stored)
+      const latestSettings = migrateSettings(currentSettings)
+      localStorage.setItem(settingsStorageKey, JSON.stringify(latestSettings))
+      return latestSettings
+    }
+    return initialSettings
   })
 
   useEffect(() => {

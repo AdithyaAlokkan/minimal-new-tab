@@ -29,7 +29,7 @@ const Clock = () => {
     return () => clearInterval(interval)
   }, [])
 
-  if (!settings.layout.clock.showHide) return
+  if (!settings.layout.clock.show) return
 
   return (
     <div
