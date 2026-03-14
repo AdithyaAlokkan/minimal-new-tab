@@ -23,6 +23,7 @@ import getIcon from '@/lib/getIcon'
 import normalizeUrl from '@/lib/normalizeUrl'
 import { Plus } from 'lucide-react'
 import { LoaderCircle } from 'lucide-react'
+import { Spinner } from '@/components/ui/spinner'
 
 interface NewShortcutDialogProps {
   shortcuts: ShortcutType[]
@@ -95,7 +96,7 @@ const NewShortcutDialog: React.FC<NewShortcutDialogProps> = ({
         />
         <DialogContent className='sm:max-w-sm'>
           <DialogHeader>
-            <DialogTitle>New App Shortcut</DialogTitle>
+            <DialogTitle>New Shortcut</DialogTitle>
           </DialogHeader>
           <form
             id='form-add-app-shortcut'
@@ -146,14 +147,7 @@ const NewShortcutDialog: React.FC<NewShortcutDialogProps> = ({
           </form>
           <DialogFooter>
             <Button type='submit' form='form-add-app-shortcut'>
-              {isFetching ? (
-                <LoaderCircle
-                  data-icon='inline-start'
-                  className='animate-spin'
-                />
-              ) : (
-                <Plus data-icon='inline-start' />
-              )}
+              {isFetching ? <Spinner /> : <Plus data-icon='inline-start' />}
               Add
             </Button>
           </DialogFooter>
