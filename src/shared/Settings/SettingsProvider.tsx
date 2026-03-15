@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { SettingsContext } from './SettingsContext'
-import type { Settings } from './settings.types'
-import { SettingsDefaults } from './settings.default'
-import { migrateSettings } from './settings.migrations'
-import { isSettings } from './settings.guards'
+import { SettingsContext } from '@/shared/settings/SettingsContext'
+import type { Settings } from '@/shared/settings/settings.types'
+import { SettingsDefault } from '@/shared/settings/settings.default'
+import { migrateSettings } from '@/shared/settings/settings.migrations'
+import { isSettings } from '@/shared/settings/settings.guards'
 
 interface SettingsProviderProps {
   children?: React.ReactNode
@@ -13,7 +13,7 @@ interface SettingsProviderProps {
 
 export function SettingsProvider({
   children,
-  initialSettings = SettingsDefaults,
+  initialSettings = SettingsDefault,
   settingsStorageKey = 'settings',
   ...props
 }: SettingsProviderProps) {

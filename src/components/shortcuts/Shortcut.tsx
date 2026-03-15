@@ -1,6 +1,6 @@
 import { useSortable } from '@dnd-kit/react/sortable'
 
-import type { ShortcutType } from '@/components/shortcuts/ShortcutType'
+import type { ShortcutType } from '@/shared/shortcuts/shortcut.types'
 import { Button } from '@/components/ui/button'
 
 type ShortcutProps = ShortcutType & {

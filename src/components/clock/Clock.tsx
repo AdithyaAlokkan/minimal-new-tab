@@ -1,4 +1,4 @@
-import { useSettings } from '@/shared/Settings/SettingsContext'
+import { useSettings } from '@/shared/settings/SettingsContext'
 import { useState, useEffect } from 'react'
 
 const Clock = () => {

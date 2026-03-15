@@ -5,7 +5,7 @@ import {
   FieldLabel,
   FieldSet,
 } from '@/components/ui/field'
-import { useSettings } from '@/shared/Settings/SettingsContext'
+import { useSettings } from '@/shared/settings/SettingsContext'
 import {
   Select,
   SelectContent,

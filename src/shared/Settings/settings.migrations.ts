@@ -1,4 +1,4 @@
-import type { Settings, SettingsLegacy } from './settings.types'
+import type { Settings, SettingsLegacy } from '@/shared/settings/settings.types'
 
 /**
  * Migration Functions

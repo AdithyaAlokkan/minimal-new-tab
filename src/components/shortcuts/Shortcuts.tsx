@@ -2,19 +2,19 @@ import Shortcut from '@/components/shortcuts/Shortcut'
 import ShortcutTrash from '@/components/shortcuts/ShortcutTrash'
 
 import { useState } from 'react'
-import useStorage from '@/hooks/useStorage'
-import type { ShortcutType } from '@/components/shortcuts/ShortcutType'
+import type { ShortcutType } from '@/shared/shortcuts/shortcut.types'
 
 import { DragDropProvider } from '@dnd-kit/react'
 import { PointerSensor, PointerActivationConstraints } from '@dnd-kit/dom'
 import { move } from '@dnd-kit/helpers'
 import NewShortcutDialogue from './NewShortcutDialog'
-import { useSettings } from '@/shared/Settings/SettingsContext'
+import { useSettings } from '@/shared/settings/SettingsContext'
+import { useShortcuts } from '@/shared/shortcuts/ShortcutsContext'
 
 const Shortcuts = () => {
-  const [shortcuts, setShortcuts] = useStorage('shortcuts')
-  const [isDraggingActive, setIsDraggingActive] = useState(false)
+  const { shortcuts, setShortcuts } = useShortcuts()
   const { settings } = useSettings()
+  const [isDraggingActive, setIsDraggingActive] = useState(false)
 
   if (!settings.layout.shortcuts.show) return
 
@@ -36,7 +36,8 @@ const Shortcuts = () => {
           setIsDraggingActive(true)
         }}
         onDragOver={(event) => {
-          setShortcuts((shortcuts: ShortcutType[]) => move(shortcuts, event))
+          const newShortcuts = move(shortcuts, event)
+          setShortcuts(newShortcuts)
         }}
         onDragEnd={({ operation }) => {
           if (operation.target?.id == 'shortcutTrash') {
@@ -69,12 +70,7 @@ const Shortcuts = () => {
                 index={index}
               />
             ))}
-          <NewShortcutDialogue
-            shortcuts={shortcuts}
-            onAddShortcut={(newShortcut: ShortcutType) => {
-              setShortcuts([...shortcuts, newShortcut])
-            }}
-          />
+          <NewShortcutDialogue />
         </div>
 
         {isDraggingActive ? <ShortcutTrash /> : null}

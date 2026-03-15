@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/field'
 import { Switch } from '@/components/ui/switch'
 import { Slider } from '@/components/ui/slider'
-import { useSettings } from '@/shared/Settings/SettingsContext'
+import { useSettings } from '@/shared/settings/SettingsContext'
 
 const AppearanceSettingsPage = () => {
   const { settings, setSettings } = useSettings()

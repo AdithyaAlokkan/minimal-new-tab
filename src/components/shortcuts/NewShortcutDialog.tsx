@@ -18,21 +18,15 @@ import {
 import { Input } from '@/components/ui/input'
 import { useForm, Controller } from 'react-hook-form'
 import { useState } from 'react'
-import type { ShortcutType } from '@/components/shortcuts/ShortcutType'
+import type { ShortcutType } from '@/shared/shortcuts/shortcut.types'
 import getIcon from '@/lib/getIcon'
 import normalizeUrl from '@/lib/normalizeUrl'
 import { Plus } from 'lucide-react'
 import { Spinner } from '@/components/ui/spinner'
+import { useShortcuts } from '@/shared/shortcuts/ShortcutsContext'
 
-interface NewShortcutDialogProps {
-  shortcuts: ShortcutType[]
-  onAddShortcut: (shortcut: ShortcutType) => void
-}
-
-const NewShortcutDialog: React.FC<NewShortcutDialogProps> = ({
-  shortcuts,
-  onAddShortcut,
-}) => {
+const NewShortcutDialog = () => {
+  const { shortcuts, setShortcuts } = useShortcuts()
   const [isOpen, setIsOpen] = useState(false)
   const [isFetching, setIsFetching] = useState(false)
 
@@ -53,7 +47,7 @@ const NewShortcutDialog: React.FC<NewShortcutDialogProps> = ({
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     setIsFetching(true)
     if (
-      shortcuts.find(
+      shortcuts?.find(
         (s: ShortcutType) => normalizeUrl(s.url) === normalizeUrl(data.url),
       )
     ) {
@@ -72,7 +66,7 @@ const NewShortcutDialog: React.FC<NewShortcutDialogProps> = ({
       icon: String(await getIcon(data.url)),
     }
 
-    onAddShortcut(newShortcut)
+    setShortcuts([...shortcuts, newShortcut])
 
     form.reset()
     setIsOpen(false)

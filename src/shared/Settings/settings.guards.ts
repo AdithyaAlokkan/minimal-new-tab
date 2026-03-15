@@ -1,4 +1,4 @@
-import type { Settings } from './settings.types'
+import type { Settings } from '@/shared/settings/settings.types'
 
 export function isSettings(value: unknown): value is Settings {
   if (typeof value !== 'object' || value === null) return false

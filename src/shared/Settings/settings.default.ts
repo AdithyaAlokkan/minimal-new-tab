@@ -1,6 +1,6 @@
-import type { Settings } from './settings.types'
+import type { Settings } from '@/shared/settings/settings.types'
 
-export const SettingsDefaults: Settings = {
+export const SettingsDefault: Settings = {
   version: 2,
   theme: {
     mode: 'system',
