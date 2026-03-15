@@ -87,7 +87,7 @@ const ShortcutsSettingsPage = () => {
                       const newUrl = e.target.value
                       setShortcuts((prev) =>
                         prev.map((s) =>
-                          s.id === shortcut.id ? { ...s, name: newUrl } : s,
+                          s.id === shortcut.id ? { ...s, url: newUrl } : s,
                         ),
                       )
                     }}
