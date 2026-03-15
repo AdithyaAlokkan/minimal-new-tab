@@ -21,7 +21,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/components/ui/sidebar'
-import { LayoutDashboard, Palette, Settings } from 'lucide-react'
+import { LayoutDashboard, Palette, Pencil } from 'lucide-react'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
 const nav = [
@@ -53,7 +53,7 @@ const SettingsDialog = () => {
               'bg-background/50 text-muted-foreground fixed right-0 bottom-0 m-5 rounded-full backdrop-blur-sm'
             }
           >
-            <Settings />
+            <Pencil />
           </Button>
         }
       />
