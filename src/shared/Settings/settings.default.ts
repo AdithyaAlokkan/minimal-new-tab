@@ -8,7 +8,7 @@ export const SettingsDefault: Settings = {
   layout: {
     clock: {
       show: false,
-      height: 100,
+      height: 45,
     },
     shortcuts: {
       show: true,
