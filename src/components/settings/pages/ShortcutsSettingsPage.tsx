@@ -23,11 +23,11 @@ const ShortcutsSettingsPage = () => {
               <FieldGroup className='gap-y-2'>
                 <div className='flex justify-between gap-x-5'>
                   <Field>
-                    <FieldLabel htmlFor={`${shortcut.id}_name_input`}>
+                    <FieldLabel htmlFor={`input_name_${shortcut.id}`}>
                       Name
                     </FieldLabel>
                     <Input
-                      id={`${shortcut.id}_name_input`}
+                      id={`input_name_${shortcut.id}`}
                       value={shortcut.name}
                       onChange={(e) => {
                         const newName = e.target.value
@@ -54,11 +54,11 @@ const ShortcutsSettingsPage = () => {
                     <PopoverContent align='start'>
                       <FieldGroup>
                         <Field>
-                          <FieldLabel htmlFor={`${shortcut.id}_icon_input`}>
+                          <FieldLabel htmlFor={`input_icon_${shortcut.id}`}>
                             Icon URL
                           </FieldLabel>
                           <Input
-                            id={`${shortcut.id}_icon_input`}
+                            id={`input_icon_${shortcut.id}`}
                             value={shortcut.icon}
                             onChange={(e) => {
                               const newIcon = e.target.value
@@ -77,11 +77,11 @@ const ShortcutsSettingsPage = () => {
                   </Popover>
                 </div>
                 <Field>
-                  <FieldLabel htmlFor={`${shortcut.id}_url_input`}>
+                  <FieldLabel htmlFor={`input_url_${shortcut.id}`}>
                     URL
                   </FieldLabel>
                   <Input
-                    id={`${shortcut.id}_url_input`}
+                    id={`input_url_${shortcut.id}`}
                     value={shortcut.url}
                     onChange={(e) => {
                       const newUrl = e.target.value

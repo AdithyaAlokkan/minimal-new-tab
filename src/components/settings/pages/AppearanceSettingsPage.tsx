@@ -32,6 +32,7 @@ const AppearanceSettingsPage = () => {
           <Field orientation={'horizontal'}>
             <FieldLabel htmlFor='input_darkMode'>Mode</FieldLabel>
             <Select
+              id='input_darkMode'
               items={itemsThemeMode}
               value={settings.theme.mode}
               onValueChange={(value) => {
