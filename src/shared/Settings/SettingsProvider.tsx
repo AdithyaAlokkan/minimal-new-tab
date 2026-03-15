@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { SettingsContext } from '@/shared/settings/SettingsContext'
 import type { Settings } from '@/shared/settings/settings.types'
 import { SettingsDefault } from '@/shared/settings/settings.default'
 import { migrateSettings } from '@/shared/settings/settings.migrations'
 import { isSettings } from '@/shared/settings/settings.guards'
+import { useTheme } from '@/hooks/useTheme'
 
 interface SettingsProviderProps {
   children?: React.ReactNode
@@ -27,22 +28,11 @@ export function SettingsProvider({
     }
   })
 
-  useEffect(() => {
-    const root = window.document.documentElement
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    const updateTheme = () => {
-      root.classList.remove('light', 'dark')
-      if (settings.theme.mode === 'system') {
-        const systemThemeMode = mediaQuery.matches ? 'dark' : 'light'
-        root.classList.add(systemThemeMode)
-        return
-      }
-      root.classList.add(settings.theme.mode)
-    }
-    updateTheme()
-    mediaQuery.addEventListener('change', updateTheme)
-    return () => mediaQuery.removeEventListener('change', updateTheme)
-  }, [settings.theme])
+  /*
+   * Apply settings
+   */
+  useTheme(settings)
+  /**/
 
   const value = {
     settings,
