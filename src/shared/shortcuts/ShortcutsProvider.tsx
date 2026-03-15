@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import type { SetStateAction } from 'react'
+
 import { ShortcutsContext } from '@/shared/shortcuts/ShortcutsContext'
 import type { ShortcutType } from '@/shared/shortcuts/shortcut.types'
 
@@ -17,7 +19,7 @@ export function ShortcutsProvider({
   const [shortcuts, setShortcuts] = useState<ShortcutType[]>(() => {
     try {
       const stored = JSON.parse(
-        localStorage.getItem('shortcuts') ?? `${initialShortcuts}`,
+        localStorage.getItem('shortcuts') ?? JSON.stringify(initialShortcuts),
       )
       return stored
     } catch {
@@ -27,9 +29,17 @@ export function ShortcutsProvider({
 
   const value = {
     shortcuts,
-    setShortcuts: (shortcuts: ShortcutType[]) => {
-      localStorage.setItem(ShortcutsStorageKey, JSON.stringify(shortcuts))
-      setShortcuts(shortcuts)
+    setShortcuts: (action: SetStateAction<ShortcutType[]>) => {
+      setShortcuts((prev) => {
+        const next =
+          typeof action === 'function'
+            ? (action as (prev: ShortcutType[]) => ShortcutType[])(prev)
+            : action
+
+        localStorage.setItem(ShortcutsStorageKey, JSON.stringify(next))
+
+        return next
+      })
     },
   }
 

@@ -1,9 +1,11 @@
+import type { Dispatch, SetStateAction } from 'react'
+
 import type { ShortcutType } from '@/shared/shortcuts/shortcut.types'
 import { createContext, useContext } from 'react'
 
 type Context = {
   shortcuts: ShortcutType[]
-  setShortcuts: (shortcuts: ShortcutType[]) => void
+  setShortcuts: Dispatch<SetStateAction<ShortcutType[]>>
 }
 
 export const ShortcutsContext = createContext<Context | undefined>(undefined)

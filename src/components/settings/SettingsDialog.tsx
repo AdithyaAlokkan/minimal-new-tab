@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import AppearanceSettingsPage from './pages/AppearanceSettingsPage'
 import LayoutSettingsPage from './pages/LayoutSettingsPage'
+import ShortcutsSettingsPage from './pages/ShortcutsSettingsPage'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -21,7 +22,12 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/components/ui/sidebar'
-import { LayoutDashboard, Palette, Pencil } from 'lucide-react'
+import {
+  LayoutDashboard,
+  Palette,
+  Pencil,
+  SquareArrowOutUpRight,
+} from 'lucide-react'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
 const nav = [
@@ -34,6 +40,11 @@ const nav = [
     key: 'Layout',
     icon: <LayoutDashboard />,
     page: <LayoutSettingsPage />,
+  },
+  {
+    key: 'Shortcuts',
+    icon: <SquareArrowOutUpRight />,
+    page: <ShortcutsSettingsPage />,
   },
 ]
 
