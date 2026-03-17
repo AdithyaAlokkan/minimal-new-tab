@@ -21,6 +21,27 @@ function migrateV1toV2(
   }
 }
 
+function migrateV2toV3(
+  settings: Extract<SettingsLegacy, { version: 2 }>,
+): Extract<SettingsLegacy, { version: 3 }> {
+  return {
+    version: 3,
+    theme: {
+      mode: settings.theme.mode,
+      color: {
+        background: '',
+        foreground: '',
+        card: '',
+        primary: '',
+        secondary: '',
+        accent: '',
+        destructive: '',
+      },
+    },
+    layout: settings.layout,
+  }
+}
+
 /**
  * Map of Migration Functions by current version
  */
@@ -28,8 +49,12 @@ const migrations: {
   1: (
     settings: Extract<SettingsLegacy, { version: 1 }>,
   ) => Extract<SettingsLegacy, { version: 2 }>
+  2: (
+    settings: Extract<SettingsLegacy, { version: 2 }>,
+  ) => Extract<SettingsLegacy, { version: 3 }>
 } = {
   1: migrateV1toV2,
+  2: migrateV2toV3,
 }
 
 /**
