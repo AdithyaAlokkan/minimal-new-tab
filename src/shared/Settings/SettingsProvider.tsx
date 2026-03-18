@@ -22,8 +22,16 @@ export function SettingsProvider({
     try {
       const stored = JSON.parse(localStorage.getItem('settings') ?? 'null')
       const migrated = migrateSettings(stored)
-      return isSettings(migrated) ? migrated : initialSettings
+      if (isSettings(migrated)) return migrated
+      else {
+        localStorage.setItem(
+          settingsStorageKey,
+          JSON.stringify(initialSettings),
+        )
+        return initialSettings
+      }
     } catch {
+      localStorage.setItem(settingsStorageKey, JSON.stringify(initialSettings))
       return initialSettings
     }
   })

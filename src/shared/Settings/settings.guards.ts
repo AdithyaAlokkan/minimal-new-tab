@@ -7,6 +7,13 @@ function isHexColor(value: unknown): value is string {
   )
 }
 
+function hasHexColor(
+  obj: Record<string, unknown>,
+  key: string,
+): obj is Record<string, string> {
+  return key in obj && isHexColor(obj[key])
+}
+
 export function isSettings(value: unknown): value is Settings {
   if (typeof value !== 'object' || value === null) return false
 
@@ -31,13 +38,19 @@ export function isSettings(value: unknown): value is Settings {
   if (typeof theme.color !== 'object' || theme.color === null) return false
   const color = theme.color as Record<string, unknown>
 
-  if (!isHexColor(color.background)) return false
-  if (!isHexColor(color.foreground)) return false
-  if (!isHexColor(color.card)) return false
-  if (!isHexColor(color.primary)) return false
-  if (!isHexColor(color.secondary)) return false
-  if (!isHexColor(color.accent)) return false
-  if (!isHexColor(color.destructive)) return false
+  const colorKeys = [
+    'background',
+    'foreground',
+    'card',
+    'primary',
+    'secondary',
+    'accent',
+    'destructive',
+  ] as const
+
+  for (const key of colorKeys) {
+    if (!hasHexColor(color, key)) return false
+  }
 
   /**
    * Check layout
